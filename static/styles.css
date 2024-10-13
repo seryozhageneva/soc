@@ -1,0 +1,368 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333333;
+    line-height: 1.6;
+}
+
+a {
+    color: #64b5f6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #42a5f5;
+}
+
+/* Навигация */
+nav {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Контент */
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333333;
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Кнопки */
+.button, .test-button, .theory-button, .back-button, .calculator-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #81c784;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover, .test-button:hover, .theory-button:hover, .back-button:hover, .calculator-button:hover {
+    background-color: #66bb6a;
+}
+
+/* Информация о команде */
+.info-section {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.info-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 5px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-section .text {
+    flex: 1;
+}
+
+/* Статьи */
+.article-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.article-content {
+    margin-bottom: 20px;
+}
+
+/* Калькуляторы */
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.calculator-button {
+    padding: 20px;
+    font-size: 1.2em;
+    background-color: #81c784;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-button:hover {
+    background-color: #66bb6a;
+    transform: translateY(-5px);
+}
+
+.calculator-container {
+    display: none;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-container.active {
+    display: block;
+}
+
+.calculator-container input,
+.calculator-container button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 1em;
+}
+
+.calculator-container button {
+    background-color: #81c784;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+}
+
+.calculator-container button:hover {
+    background-color: #66bb6a;
+}
+
+.calculator-container .result {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #81c784;
+    font-size: 1.2em;
+}
+
+/* Теоретическая часть */
+.theory-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.theory-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.theory-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.theory-button img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.theory-button .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    border-radius: 0 0 10px 10px;
+}
+
+.theory-button:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.theory-button h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333333;
+}
+
+/* Тесты */
+.test-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.test-button {
+    margin-bottom: 10px;
+}
+
+.test-form {
+    margin-top: 20px;
+}
+
+.test-form ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+.test-form li {
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.test-form li h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333333;
+}
+
+.test-form li label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+}
+
+.test-form li label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.test-form li label .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #ffffff;
+    border: 2px solid #81c784;
+    border-radius: 50%;
+}
+
+.test-form li label:hover input ~ .checkmark {
+    background-color: #f0f0f0;
+}
+
+.test-form li label input:checked ~ .checkmark {
+    background-color: #81c784;
+}
+
+.test-form li label .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.test-form li label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.test-form li label .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+}
+
+.test-form button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #81c784;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.test-form button:hover {
+    background-color: #66bb6a;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* FAQ */
+.faq-content {
+    margin-top: 20px;
+}
+
+.faq-content p {
+    margin-bottom: 10px;
+}
