@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест 3: Инвестиции</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">О Нас</a></li>
+            <li><a href="/theory">Теоретическая часть</a></li>
+            <li><a href="/tests">Тесты</a></li>
+            <li><a href="/calculators">Калькуляторы</a></li>
+            <li><a href="/faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Тест 3: Инвестиции</h1>
+        <form id="testForm">
+            <ol>
+                <li>
+                    Что такое инвестиции?
+                    <br>
+                    <input type="radio" name="q1" value="a"> Процесс накопления денег
+                    <br>
+                    <input type="radio" name="q1" value="b"> Использование денег для приобретения активов с целью получения дохода
+                    <br>
+                    <input type="radio" name="q1" value="c"> Продажа акций на фондовом рынке
+                </li>
+                <li>
+                    Какие типы активов можно считать инвестициями?
+                    <br>
+                    <input type="radio" name="q2" value="a"> Долги
+                    <br>
+                    <input type="radio" name="q2" value="b"> Акции, облигации, недвижимость, фонды
+                    <br>
+                    <input type="radio" name="q2" value="c"> Кредиты
+                </li>
+                <li>
+                    Какова основная цель инвестирования?
+                    <br>
+                    <input type="radio" name="q3" value="a"> Уменьшить свои расходы
+                    <br>
+                    <input type="radio" name="q3" value="b"> Увеличить капитал и получить доход
+                    <br>
+                    <input type="radio" name="q3" value="c"> Избежать финансовых рисков
+                </li>
+                <li>
+                    Что такое диверсификация в контексте инвестирования?
+                    <br>
+                    <input type="radio" name="q4" value="a"> Инвестирование только в одну акцию
+                    <br>
+                    <input type="radio" name="q4" value="b"> Распределение средств между разными классами активов для снижения рисков
+                    <br>
+                    <input type="radio" name="q4" value="c"> Постоянная смена активов
+                </li>
+                <li>
+                    Почему важно учитывать риски при инвестировании?
+                    <br>
+                    <input type="radio" name="q5" value="a"> Все инвестиции безопасны
+                    <br>
+                    <input type="radio" name="q5" value="b"> Инвестиции всегда связаны с риском, и важно оценивать свою готовность к нему
+                    <br>
+                    <input type="radio" name="q5" value="c"> Чтобы избежать налогов
+                </li>
+                <li>
+                    Какой из следующих вариантов является долгосрочной стратегией инвестирования?
+                    <br>
+                    <input type="radio" name="q6" value="a"> Быстрая продажа акций
+                    <br>
+                    <input type="radio" name="q6" value="b"> Удержание активов в течение нескольких лет
+                    <br>
+                    <input type="radio" name="q6" value="c"> Инвестирование только на короткий срок
+                </li>
+                <li>
+                    Что может помочь защитить ваши инвестиции от инфляции?
+                    <br>
+                    <input type="radio" name="q7" value="a"> Хранение денег в наличных
+                    <br>
+                    <input type="radio" name="q7" value="b"> Инвестирование в активы, которые могут расти в цене
+                    <br>
+                    <input type="radio" name="q7" value="c"> Закупка товаров
+                </li>
+                <li>
+                    Как начать инвестировать?
+                    <br>
+                    <input type="radio" name="q8" value="a"> Сразу вкладывать все средства
+                    <br>
+                    <input type="radio" name="q8" value="b"> Определить финансовые цели и изучить рынок
+                    <br>
+                    <input type="radio" name="q8" value="c"> Ждать, пока другие начнут инвестировать
+                </li>
+                <li>
+                    Какой из следующих пунктов не является инвестиционным инструментом?
+                    <br>
+                    <input type="radio" name="q9" value="a"> Кредит
+                    <br>
+                    <input type="radio" name="q9" value="b"> Облигации
+                    <br>
+                    <input type="radio" name="q9" value="c"> Фонды
+                </li>
+                <li>
+                    Какова роль финансовых консультантов в процессе инвестирования?
+                    <br>
+                    <input type="radio" name="q10" value="a"> Они не важны
+                    <br>
+                    <input type="radio" name="q10" value="b"> Помогают оценить риски и выбрать подходящие инструменты
+                    <br>
+                    <input type="radio" name="q10" value="c"> Ведут бухгалтерию
+                </li>
+            </ol>
+            <button type="button" onclick="checkAnswers()">Проверить ответы</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'b',
+                q4: 'b',
+                q5: 'b',
+                q6: 'b',
+                q7: 'b',
+                q8: 'b',
+                q9: 'a',
+                q10: 'b'
+            };
+
+            let correctAnswers = 0;
+            let totalQuestions = 10;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const userAnswer = document.querySelector(`input[name=q${i}]:checked`).value;
+                if (userAnswer === answers[`q${i}`]) {
+                    correctAnswers++;
+                }
+            }
+
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            document.getElementById('result').innerHTML = `Ваш результат: ${correctAnswers} из ${totalQuestions} (${percentage.toFixed(2)}%)`;
+        }
+    </script>
+</body>
+</html>

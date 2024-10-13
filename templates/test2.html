@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест 2: Кредиты</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">О Нас</a></li>
+            <li><a href="/theory">Теоретическая часть</a></li>
+            <li><a href="/tests">Тесты</a></li>
+            <li><a href="/calculators">Калькуляторы</a></li>
+            <li><a href="/faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Тест 2: Кредиты</h1>
+        <form id="testForm">
+            <ol>
+                <li>
+                    Что такое кредит?
+                    <br>
+                    <input type="radio" name="q1" value="a"> Долгосрочная инвестиция
+                    <br>
+                    <input type="radio" name="q1" value="b"> Сумма денег, которую заемщик получает от кредитора с обязательством вернуть с процентами
+                    <br>
+                    <input type="radio" name="q1" value="c"> Способ накопления средств
+                </li>
+                <li>
+                    Какие виды кредитов существуют?
+                    <br>
+                    <input type="radio" name="q2" value="a"> Ипотечные, потребительские, автокредиты
+                    <br>
+                    <input type="radio" name="q2" value="b"> Инвестиционные, благотворительные
+                    <br>
+                    <input type="radio" name="q2" value="c"> Коммерческие, личные
+                </li>
+                <li>
+                    Что означает фиксированная процентная ставка?
+                    <br>
+                    <input type="radio" name="q3" value="a"> Процент меняется каждый месяц
+                    <br>
+                    <input type="radio" name="q3" value="b"> Процент остается неизменным на протяжении всего срока кредита
+                    <br>
+                    <input type="radio" name="q3" value="c"> Процент зависит от рейтинга заемщика
+                </li>
+                <li>
+                    Какой элемент кредита обозначает срок, в течение которого заемщик должен вернуть кредит?
+                    <br>
+                    <input type="radio" name="q4" value="a"> Процентная ставка
+                    <br>
+                    <input type="radio" name="q4" value="b"> Срок кредита
+                    <br>
+                    <input type="radio" name="q4" value="c"> Сумма кредита
+                </li>
+                <li>
+                    Какой из следующих пунктов является преимуществом кредитов?
+                    <br>
+                    <input type="radio" name="q5" value="a"> Получение необходимых средств сразу
+                    <br>
+                    <input type="radio" name="q5" value="b"> Обременение долговыми обязательствами
+                    <br>
+                    <input type="radio" name="q5" value="c"> Усложнение финансового управления
+                </li>
+                <li>
+                    Какой из следующих пунктов является недостатком кредитов?
+                    <br>
+                    <input type="radio" name="q6" value="a"> Возможность улучшить кредитную историю
+                    <br>
+                    <input type="radio" name="q6" value="b"> Проценты и комиссии
+                    <br>
+                    <input type="radio" name="q6" value="c"> Гибкость использования средств
+                </li>
+                <li>
+                    Почему важно оценивать свою платежеспособность перед получением кредита?
+                    <br>
+                    <input type="radio" name="q7" value="a"> Чтобы получить максимальную сумму кредита
+                    <br>
+                    <input type="radio" name="q7" value="b"> Чтобы убедиться, что сможете погасить кредит
+                    <br>
+                    <input type="radio" name="q7" value="c"> Чтобы получить кредит с низкой процентной ставкой
+                </li>
+                <li>
+                    Какой из следующих пунктов не является советом по управлению кредитами?
+                    <br>
+                    <input type="radio" name="q8" value="a"> Брать несколько кредитов одновременно
+                    <br>
+                    <input type="radio" name="q8" value="b"> Сравнивать условия различных кредиторов
+                    <br>
+                    <input type="radio" name="q8" value="c"> Следить за своей кредитной историей
+                </li>
+                <li>
+                    Как кредит может повлиять на кредитную историю?
+                    <br>
+                    <input type="radio" name="q9" value="a"> Никак не влияет
+                    <br>
+                    <input type="radio" name="q9" value="b"> Своевременное погашение улучшает кредитную историю
+                    <br>
+                    <input type="radio" name="q9" value="c"> Кредиты всегда ухудшают кредитную историю
+                </li>
+                <li>
+                    Что делать, если вы не можете погасить кредит?
+                    <br>
+                    <input type="radio" name="q10" value="a"> Игнорировать проблему
+                    <br>
+                    <input type="radio" name="q10" value="b"> Обратиться в банк и обсудить возможные варианты решения
+                    <br>
+                    <input type="radio" name="q10" value="c"> Брать новый кредит для погашения старого
+                </li>
+            </ol>
+            <button type="button" onclick="checkAnswers()">Проверить ответы</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: 'b',
+                q2: 'a',
+                q3: 'b',
+                q4: 'b',
+                q5: 'a',
+                q6: 'b',
+                q7: 'b',
+                q8: 'a',
+                q9: 'b',
+                q10: 'b'
+            };
+
+            let correctAnswers = 0;
+            let totalQuestions = 10;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const userAnswer = document.querySelector(`input[name=q${i}]:checked`).value;
+                if (userAnswer === answers[`q${i}`]) {
+                    correctAnswers++;
+                }
+            }
+
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            document.getElementById('result').innerHTML = `Ваш результат: ${correctAnswers} из ${totalQuestions} (${percentage.toFixed(2)}%)`;
+        }
+    </script>
+</body>
+</html>

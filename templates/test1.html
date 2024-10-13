@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест 1: Бюджет: доходы и расходы</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">О Нас</a></li>
+            <li><a href="/theory">Теоретическая часть</a></li>
+            <li><a href="/tests">Тесты</a></li>
+            <li><a href="/calculators">Калькуляторы</a></li>
+            <li><a href="/faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Тест 1: Бюджет: доходы и расходы</h1>
+        <form id="testForm">
+            <ol>
+                <li>
+                    Что такое бюджет?
+                    <br>
+                    <input type="radio" name="q1" value="a"> План управления временем
+                    <br>
+                    <input type="radio" name="q1" value="b"> План, помогающий отслеживать доходы и расходы
+                    <br>
+                    <input type="radio" name="q1" value="c"> Способ инвестирования
+                </li>
+                <li>
+                    Какие расходы считаются фиксированными?
+                    <br>
+                    <input type="radio" name="q2" value="a"> Аренда и ипотека
+                    <br>
+                    <input type="radio" name="q2" value="b"> Праздничные траты
+                    <br>
+                    <input type="radio" name="q2" value="c"> Обеды в ресторане
+                </li>
+                <li>
+                    Какой из следующих пунктов не является источником дохода?
+                    <br>
+                    <input type="radio" name="q3" value="a"> Заработная плата
+                    <br>
+                    <input type="radio" name="q3" value="b"> Платежи по кредиту
+                    <br>
+                    <input type="radio" name="q3" value="c"> Дивиденды от инвестиций
+                </li>
+                <li>
+                    Для чего важно составлять бюджет?
+                    <br>
+                    <input type="radio" name="q4" value="a"> Чтобы запоминать даты встреч
+                    <br>
+                    <input type="radio" name="q4" value="b"> Чтобы избежать долгов и достигать финансовых целей
+                    <br>
+                    <input type="radio" name="q4" value="c"> Чтобы планировать отпуск
+                </li>
+                <li>
+                    Какие из следующих пунктов являются переменными расходами?
+                    <br>
+                    <input type="radio" name="q5" value="a"> Покупка продуктов
+                    <br>
+                    <input type="radio" name="q5" value="b"> Коммунальные услуги
+                    <br>
+                    <input type="radio" name="q5" value="c"> Аренда квартиры
+                </li>
+                <li>
+                    Как лучше отслеживать свои расходы?
+                    <br>
+                    <input type="radio" name="q6" value="a"> Записывать на бумаге раз в месяц
+                    <br>
+                    <input type="radio" name="q6" value="b"> Использовать приложения для учета расходов
+                    <br>
+                    <input type="radio" name="q6" value="c"> Запоминать все в голове
+                </li>
+                <li>
+                    Что нужно сделать, если расходы превышают доходы?
+                    <br>
+                    <input type="radio" name="q7" value="a"> Ничего не делать
+                    <br>
+                    <input type="radio" name="q7" value="b"> Пересмотреть свои расходы
+                    <br>
+                    <input type="radio" name="q7" value="c"> Увеличить доходы, не анализируя расходы
+                </li>
+                <li>
+                    Какой из следующих пунктов может помочь в достижении финансовых целей?
+                    <br>
+                    <input type="radio" name="q8" value="a"> Игнорирование бюджета
+                    <br>
+                    <input type="radio" name="q8" value="b"> Регулярное пересмотр бюджета
+                    <br>
+                    <input type="radio" name="q8" value="c"> Спонтанные покупки
+                </li>
+                <li>
+                    Какой процент от дохода рекомендуется откладывать на сбережения?
+                    <br>
+                    <input type="radio" name="q9" value="a"> 5%
+                    <br>
+                    <input type="radio" name="q9" value="b"> 15%
+                    <br>
+                    <input type="radio" name="q9" value="c"> 10% и более
+                </li>
+                <li>
+                    Почему важно регулярно пересматривать бюджет?
+                    <br>
+                    <input type="radio" name="q10" value="a"> Чтобы показывать его другим людям
+                    <br>
+                    <input type="radio" name="q10" value="b"> Чтобы учитывать изменения в доходах и расходах
+                    <br>
+                    <input type="radio" name="q10" value="c"> Чтобы запоминать все траты
+                </li>
+            </ol>
+            <button type="button" onclick="checkAnswers()">Проверить ответы</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: 'b',
+                q2: 'a',
+                q3: 'b',
+                q4: 'b',
+                q5: 'a',
+                q6: 'b',
+                q7: 'b',
+                q8: 'b',
+                q9: 'c',
+                q10: 'b'
+            };
+
+            let correctAnswers = 0;
+            let totalQuestions = 10;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const userAnswer = document.querySelector(`input[name=q${i}]:checked`).value;
+                if (userAnswer === answers[`q${i}`]) {
+                    correctAnswers++;
+                }
+            }
+
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            document.getElementById('result').innerHTML = `Ваш результат: ${correctAnswers} из ${totalQuestions} (${percentage.toFixed(2)}%)`;
+        }
+    </script>
+</body>
+</html>

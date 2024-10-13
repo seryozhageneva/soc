@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькуляторы</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">О Нас</a></li>
+            <li><a href="/theory">Теоретическая часть</a></li>
+            <li><a href="/tests">Тесты</a></li>
+            <li><a href="/calculators">Калькуляторы</a></li>
+            <li><a href="/faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Калькуляторы</h1>
+        <div class="calculator-buttons">
+            <button class="calculator-button" onclick="showCalculator('budget')">Бюджет (доходы и расходы)</button>
+            <button class="calculator-button" onclick="showCalculator('credit')">Кредиты</button>
+            <button class="calculator-button" onclick="showCalculator('investment')">Инвестиции</button>
+            <button class="calculator-button" onclick="showCalculator('pension')">Пенсия</button>
+        </div>
+
+        <!-- Бюджет (доходы и расходы) -->
+        <div id="budget" class="calculator-container">
+            <h2>Бюджет (доходы и расходы)</h2>
+            <input type="number" id="income" placeholder="Доходы">
+            <input type="number" id="expenses" placeholder="Расходы">
+            <button onclick="calculateBudget()">Рассчитать</button>
+            <div class="result" id="budgetResult"></div>
+        </div>
+
+        <!-- Кредиты -->
+        <div id="credit" class="calculator-container">
+            <h2>Кредиты</h2>
+            <input type="number" id="loanAmount" placeholder="Сумма кредита">
+            <input type="number" id="interestRate" placeholder="Процентная ставка (%)">
+            <input type="number" id="loanTerm" placeholder="Срок кредита (месяцы)">
+            <button onclick="calculateCredit()">Рассчитать</button>
+            <div class="result" id="creditResult"></div>
+        </div>
+
+        <!-- Инвестиции -->
+        <div id="investment" class="calculator-container">
+            <h2>Инвестиции</h2>
+            <input type="number" id="initialInvestment" placeholder="Первоначальные инвестиции">
+            <input type="number" id="monthlyInvestment" placeholder="Ежемесячные инвестиции">
+            <input type="number" id="annualReturn" placeholder="Годовая доходность (%)">
+            <input type="number" id="investmentTerm" placeholder="Срок инвестиций (годы)">
+            <button onclick="calculateInvestment()">Рассчитать</button>
+            <div class="result" id="investmentResult"></div>
+        </div>
+
+        <!-- Пенсия -->
+        <div id="pension" class="calculator-container">
+            <h2>Пенсия</h2>
+            <input type="number" id="currentAge" placeholder="Текущий возраст">
+            <input type="number" id="retirementAge" placeholder="Возраст выхода на пенсию">
+            <input type="number" id="monthlySavings" placeholder="Ежемесячные сбережения">
+            <input type="number" id="annualReturnPension" placeholder="Годовая доходность (%)">
+            <button onclick="calculatePension()">Рассчитать</button>
+            <div class="result" id="pensionResult"></div>
+        </div>
+    </div>
+
+    <script>
+        function showCalculator(calculatorId) {
+            const calculators = document.querySelectorAll('.calculator-container');
+            calculators.forEach(calculator => calculator.classList.remove('active'));
+            document.getElementById(calculatorId).classList.add('active');
+        }
+
+        function calculateBudget() {
+            const income = parseFloat(document.getElementById('income').value);
+            const expenses = parseFloat(document.getElementById('expenses').value);
+            const result = income - expenses;
+            document.getElementById('budgetResult').innerText = `Ваш бюджет: ${result.toFixed(2)}`;
+        }
+
+        function calculateCredit() {
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+            const loanTerm = parseFloat(document.getElementById('loanTerm').value);
+            const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
+            document.getElementById('creditResult').innerText = `Ежемесячный платеж: ${monthlyPayment.toFixed(2)}`;
+        }
+
+        function calculateInvestment() {
+            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value);
+            const monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
+            const annualReturn = parseFloat(document.getElementById('annualReturn').value) / 100 / 12;
+            const investmentTerm = parseFloat(document.getElementById('investmentTerm').value) * 12;
+            const futureValue = initialInvestment * Math.pow(1 + annualReturn, investmentTerm) + monthlyInvestment * ((Math.pow(1 + annualReturn, investmentTerm) - 1) / annualReturn);
+            document.getElementById('investmentResult').innerText = `Будущая стоимость инвестиций: ${futureValue.toFixed(2)}`;
+        }
+
+        function calculatePension() {
+            const currentAge = parseFloat(document.getElementById('currentAge').value);
+            const retirementAge = parseFloat(document.getElementById('retirementAge').value);
+            const monthlySavings = parseFloat(document.getElementById('monthlySavings').value);
+            const annualReturnPension = parseFloat(document.getElementById('annualReturnPension').value) / 100 / 12;
+            const yearsToRetirement = retirementAge - currentAge;
+            const monthsToRetirement = yearsToRetirement * 12;
+            const pensionAmount = monthlySavings * ((Math.pow(1 + annualReturnPension, monthsToRetirement) - 1) / annualReturnPension);
+            document.getElementById('pensionResult').innerText = `Сумма на пенсии: ${pensionAmount.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
